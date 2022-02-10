@@ -1,4 +1,5 @@
 body {
+    height: 500vw;
     font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
     -webkit-overflow-scrolling: touch;
     background-color: #2C3333;
@@ -45,4 +46,18 @@ body {
 }
 .wall-front {
     transform: translateZ(-500vw);
+}
+.progress-bar-con {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 5px;
+    background-color: #555;
+}
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #fff000;
 }
