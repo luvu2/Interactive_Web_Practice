@@ -36,7 +36,7 @@ body {
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255);
 }
 .wall-left {
     left: -500vw;
@@ -49,7 +49,7 @@ body {
     transform: rotateY(90deg) translateZ(100vw);
 }
 .wall-front {
-    transform: translateZ(-500vw);
+    transform: translateZ(-70vw);
 }
 .progress-bar-con {
     position: fixed;
