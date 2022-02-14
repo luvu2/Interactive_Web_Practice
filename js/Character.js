@@ -1,4 +1,4 @@
-function Character() {
+function Character(info) {
     this.mainElem = document.createElement('div');
     this.mainElem.classList.add('character');
     this.mainElem.innerHTML = ''
@@ -28,4 +28,18 @@ function Character() {
 + '</div>';
 
     document.querySelector('.stage').appendChild(this.mainElem);
+
+    this.mainElem.style.left = info.xPos + '%';
+    this.init();
 }
+
+Character.prototype = {
+    constructor: Character,
+    init: function () {
+        const self = this;
+
+        window.addEventListener('scroll', function () {
+            self.mainElem.classList.add('running');
+        });
+    }
+};
