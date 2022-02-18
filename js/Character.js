@@ -40,7 +40,6 @@ Character.prototype = {
         const self = this;
 
         window.addEventListener('scroll', function () {
-            // 빈번하게 일어나는 이벤트에서 정말 필요할 때 효율적으로 딱 번번만 실행한다
             clearTimeout(self.scrollState);
 
             if (!self.scrollState) {
