@@ -31,6 +31,12 @@ function Character(info) {
 
     this.mainElem.style.left = info.xPos + '%';
     this.scrollState = false;
+    this.lastScrollTop = 0;
+    this.xPos = info.xPos;
+    this.speed = 0.3;
+    this.direction;
+    this.runningState = false;
+    this.rafId;
     this.init();
 }
 
@@ -50,6 +56,55 @@ Character.prototype = {
                 self.scrollState = false;
                 self.mainElem.classList.remove('running');
             }, 500);
+
+            // 이전 스크롤 위치와 현재 스크롤 위치를 비교
+            if (self.lastScrollTop > pageYOffset) {
+                // 이전 스크롤 위치가 크다면: 스크롤 올림
+                self.mainElem.setAttribute('data-direction', 'backward');
+            } else {
+                // 현재 스크롤 위치가 크다면: 스크롤 내림
+                self.mainElem.setAttribute('data-direction', 'forward');
+            }
+
+            self.lastScrollTop = pageYOffset;
+        });
+
+        window.addEventListener('keydown', function (e) {
+            if (self.runningState) return;
+
+            if (e.keyCode == 37) {
+                // 왼쪽
+                self.direction = 'left';
+                self.mainElem.setAttribute('data-direction', 'left');
+                self.mainElem.classList.add('running');
+                self.run(self);
+                self.runningState = true;
+            } else if (e.keyCode == 39) {
+                // 오른쪽
+                self.direction = 'right';
+                self.mainElem.setAttribute('data-direction', 'right');
+                self.mainElem.classList.add('running');
+                self.run(self);
+                self.runningState = true;
+            }
+        });
+
+        window.addEventListener('keyup', function (e) {
+            self.mainElem.classList.add('running');
+            this.cancelAnimationFrame(self.rafId);
+        })
+    },
+    run: function (self) {
+        if (self.direction == 'left') {
+            self.xPos -= self.speed;
+        } else if (self.direction == 'right') {
+            self.xPos += self.speed;
+        }
+
+        self.mainElem.style.left = self.xPos + '%';
+
+        self.rafId = requestAnimationFrame(function () {
+            self.run(self);
         });
     }
 };
