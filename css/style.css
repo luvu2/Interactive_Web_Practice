@@ -175,3 +175,37 @@ body {
 .character.running .character-leg-right { animation: ani-running-leg 0.2s alternate infinite linear; }
 .character.running .character-leg-left { animation: ani-running-leg 0.2s alternate-reverse infinite linear; }
 .character.running .character-arm { animation: ani-running-arm 0.2s alternate infinite linear; }
+
+.select {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 100;
+}
+.select-btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.select-head {
+    background-image: url('../images/ragirl_head_front.png');
+    background-size: 36px auto;
+}
+.select-torso {
+    background-image: url('../images/ragirl_body_front.png');
+}
+body[data-char='torso'] .select-btn-head {
+    opacity: 0.5;
+}
+body[data-char='head'] .select-btn-head,
+body[data-char='torso'] .select-btn-torso {
+    opacity: 1;
+}
