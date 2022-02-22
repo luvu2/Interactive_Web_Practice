@@ -52,7 +52,7 @@ Character.prototype = {
                 self.mainElem.classList.add('running');
             }
 
-            self.scrollState = this.setTimeout(function () {
+            self.scrollState = setTimeout(function () {
                 self.scrollState = false;
                 self.mainElem.classList.remove('running');
             }, 500);

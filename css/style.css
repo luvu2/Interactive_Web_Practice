@@ -28,6 +28,9 @@ body {
 body[data-char='ragirl'] {
     background: #ff7200;
 }
+body[data-char='ragirl-torso'] {
+    background: skyblue;
+}
 .world {
     position: fixed;
     left: 0;
@@ -191,7 +194,7 @@ body[data-char='ragirl'] .character-head {
 }
 body[data-char='ragirl'] .character-head-face.face-front { background-image: url('../images/ragirl_head_front.png'); }
 body[data-char='ragirl'] .character-head-face.face-back { background-image: url('../images/ragirl_head_back.png'); }
-body[data-char='ragirl'] .character-torso {
+body[data-char='ragirl-torso'] .character-torso {
     left: calc(273 / 948 * 100%);
     top: calc(630 / 1340 * 100%);
     z-index: 50;
@@ -199,10 +202,10 @@ body[data-char='ragirl'] .character-torso {
     height: calc(444 / 1340 * 100%);
     transform-origin: center center;
 }
-body[data-char='ragirl'] .character-torso-face.face-front { background-image: url('../images/ragirl_body_front.png'); }
-body[data-char='ragirl'] .character-torso-face.face-back { background-image: url('../images/ragirl_body_back.png'); }
+body[data-char='ragirl-torso'] .character-torso-face.face-front { background-image: url('../images/ragirl_body_front.png'); }
+body[data-char='ragirl-torso'] .character-torso-face.face-back { background-image: url('../images/ragirl_body_back.png'); }
 
-body[data-char='ragirl'] .character-arm-right {
+/* body[data-char='ragirl'] .character-arm-right {
     left: calc(134 / 948 * 100%);
     top: calc(709 / 1340 * 100%);
     width: calc(138 / 948 * 100%);
@@ -239,7 +242,7 @@ body[data-char='ragirl'] .character-leg-left {
     transform-origin: center top;
 }
 body[data-char='ragirl'] .character-leg-left .face-front { background-image: url('../images/ragirl_leg_1.png'); }
-body[data-char='ragirl'] .character-leg-left .face-back { background-image: url('../images/ragirl_leg_0.png'); }
+body[data-char='ragirl'] .character-leg-left .face-back { background-image: url('../images/ragirl_leg_0.png'); } */
 
 .select-character {
     display: flex;
@@ -266,6 +269,10 @@ body[data-char='ragirl'] .character-leg-left .face-back { background-image: url(
 }
 .select-character-ragirl {
     background-image: url('../images/ragirl_head_front.png');
+    opacity: 0.5;
+}
+.select-character-ragirl-torso {
+    background-image: url('../images/ragirl_body_front.png');
     opacity: 0.5;
 }
 body[data-char='ragirl'] .select-character-ilbuni {
